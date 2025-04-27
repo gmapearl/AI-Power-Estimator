@@ -20,7 +20,7 @@ WATER_PER_KWH_LITERS = 1.8  # liters per kWh (for cooling)
 # Energy estimation function
 def estimate_energy_usage(model, token_count):
     watts = ENERGY_PER_TOKEN_WATTS[model] * token_count
-    return watts / 1000  # watt-hours
+    return watts  # watt-hours
 
 # Water usage estimation
 def estimate_water_usage(energy_wh):
@@ -47,7 +47,7 @@ st.title("AI Token Impact Calculator")
 st.markdown("Estimate your prompt's **energy and water footprint**, and get a recommendation for the most efficient model.")
 
 # Input field
-prompt = st.text_area("Paste Your Prompt Here", height=200)
+prompt = st.text_area("Paste Your Prompt Here", height=100)
 
 if prompt:
     results = []
